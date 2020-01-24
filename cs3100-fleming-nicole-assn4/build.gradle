@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'application'        /* Needed for mainClassName property, also brings in the 'run' task */
+}
+
+apply plugin: 'java'
+
+mainClassName = 'Main'
+
+group 'Group-ID'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories{
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+
+
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'Main'
+    }
+}
